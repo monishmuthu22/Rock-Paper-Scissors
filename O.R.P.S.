@@ -1,0 +1,43 @@
+import random
+
+print("Welcome To The Online Rock Paper Scissors Game (O.R.P.S.)")
+score = 0
+options = ['R', 'P', 'S']
+user_throw = ''
+play = input("Want to Play? Enter (y) for yes and (n) for no: ").upper()
+if play != "Y":
+    print("Have a Nice Day")
+    quit()
+else:
+    while user_throw != 'QUIT':
+        computer_choice = random.choice(options)
+        user_throw = input("Enter (R) for Rock, (P) for Paper or (S) for Scissors: ").upper()
+        if user_throw == computer_choice:
+            print(score)
+            print("It's a Draw!")
+        elif user_throw != computer_choice:
+            if user_throw == "R" and computer_choice == "P":
+                print("Point Computer")
+                score -= 1
+            elif user_throw == "R" and computer_choice == "S":
+                print("Point User")
+                score += 1
+            elif user_throw == "P" and computer_choice == "R":
+                print("Point User")
+                score += 1
+            elif user_throw == "P" and computer_choice == "S":
+                print("Point Computer")
+                score -= 1
+            elif user_throw == "S" and computer_choice == "R":
+                print("Point Computer")
+                score -= 1
+            elif user_throw == "S" and computer_choice == "P":
+                print("Point User")
+                score += 1
+            else:
+                print("I dont understand that symbology")
+print(score)
+if score <= 0:
+    print("Better Luck Next Time")
+else:
+    print("Congratulations You Win")
